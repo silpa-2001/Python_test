@@ -1,0 +1,14 @@
+def any_satisfies_condition(input_list, condition):
+    return any(condition(element) for element in input_list)
+
+# Example condition: checking if an element is greater than 10
+def is_greater_than_10(x):
+    return x > 10
+
+# Test the function
+user_input = input("Enter elements of the list separated by spaces: ")
+user_list = list(map(int, user_input.split()))  # Convert input string to list of integers
+if any_satisfies_condition(user_list, is_greater_than_10):
+    print("At least one element in the list is greater than 10.")
+else:
+    print("No element in the list is greater than 10.")
