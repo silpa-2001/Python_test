@@ -1,69 +1,37 @@
-from tkinter import *
 
-def button_press(num):
-    global equation_text
-    equation_text += str(num)
-    equation_label.set(equation_text)
 
-def clear():
-    global equation_text
-    equation_label.set("")
-    equation_text = ""
+print("Choose:\n1.ADD\n2.SUBRACT\n3.MULTIPLE\n4.DIVIDE\n5.Exit\n")
+while True:
 
-def equals():
-    try:
-        global equation_text
-        total = str(eval(equation_text))
-        equation_label.set(total)
-        equation_text = total
-    except Exception:
-        equation_label.set("ERROR!")
-        equation_text=""
+    choice=int(input("Enter (1/2/3/4/5):"))
 
-window = Tk()
+    if choice==5:
+        print("You have exited from the program!")
+        break
 
-window.title("Calculator")
-window.geometry("500x500")
-equation_text = ""
-equation_label = StringVar()
-label = Label(window, textvariable=equation_label, font=("consolas",20), bg="white",width=24, height=2)
-label.pack()
-
-frame = Frame(window)
-frame.pack()
-
-button1 = Button(frame, text=1, height=4, width=9, font=35, command= lambda:button_press(1))
-button1.grid(row=0, column=0)
-button2 = Button(frame, text=2, height=4, width=9, font=35, command= lambda:button_press(2))
-button2.grid(row=0, column=1)
-button3 = Button(frame, text=3, height=4, width=9, font=35, command= lambda:button_press(3))
-button3.grid(row=0, column=2)
-button4 = Button(frame, text=4, height=4, width=9, font=35, command= lambda:button_press(4))
-button4.grid(row=1, column=0)
-button5 = Button(frame, text=5, height=4, width=9, font=35, command= lambda:button_press(5))
-button5.grid(row=1, column=1)
-button6 = Button(frame, text=6, height=4, width=9, font=35, command= lambda:button_press(6))
-button6.grid(row=1, column=2)
-button7 = Button(frame, text=7, height=4, width=9, font=35, command= lambda:button_press(7))
-button7.grid(row=2, column=0)
-button8 = Button(frame, text=8, height=4, width=9, font=35, command= lambda:button_press(8))
-button8.grid(row=2, column=1)
-button9 = Button(frame, text=9, height=4, width=9, font=35, command= lambda:button_press(9))
-button9.grid(row=2, column=2)
-button0 = Button(frame, text=0, height=4, width=9, font=35, command= lambda:button_press(0))
-button0.grid(row=3, column=0)
-plus = Button(frame, text='+', height=4, width=9, font=35, command= lambda:button_press('+'))
-plus.grid(row=0, column=4)
-minus = Button(frame, text='-', height=4, width=9, font=35, command= lambda:button_press('-'))
-minus.grid(row=1, column=4)
-divide = Button(frame, text='/', height=4, width=9, font=35, command= lambda:button_press('/'))
-divide.grid(row=2, column=4)
-multi = Button(frame, text='*', height=4, width=9, font=35, command= lambda:button_press('*'))
-multi.grid(row=3, column=4)
-equal = Button(frame, text='=', height=4, width=9, font=35, command= equals)
-equal.grid(row=3, column=1)
-decimal = Button(frame, text='.', height=4, width=9, font=35, command= lambda:button_press('.'))
-decimal.grid(row=3, column=2)
-clears = Button(frame, text='C', height=4, width=9, font=35, command= clear)
-clears.grid(row=4, column=0)
-window.mainloop()
+    if choice==1:
+        x=int(input("Enter a number :"))
+        y= int(input("Enter another number :"))   
+        print(x+y)
+        
+    elif choice==2:
+        x=int(input("Enter a number :"))
+        y= int(input("Enter another number :"))   
+        print(x-y)
+        
+    elif choice==3:
+        x=int(input("Enter a number :"))
+        y= int(input("Enter another number :"))   
+        print(x*y)
+        
+    elif choice==4:
+        x=int(input("Enter a number :"))
+        y= int(input("Enter another number :"))
+        if y==0:
+            print("Error... Divison by zero not possible!")
+        else:
+            print(x/y)
+    else:
+        print("Invalid Input...")
+            
+    
