@@ -1,0 +1,5 @@
+file=open("test.txt","w")
+file.write("Merlin\nThe Flash\nHeartStopper\nTeenWolf\n")
+file.close()
+file=open("test.txt","r")
+print(file.read())
