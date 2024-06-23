@@ -1,0 +1,13 @@
+if __name__ == '__main__':
+    n = int(input())
+    arr = map(int, input().split())
+    first=0
+    runner=0
+    for i in arr:
+        if i>first:
+            runner=first
+            first=i
+        elif i>runner and i!=first:
+            runner=i
+            
+    print(runner)
