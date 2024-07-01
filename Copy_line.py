@@ -1,0 +1,11 @@
+cfile=open("test.txt","r")
+cfile2=open("test2.txt","w")
+for line in cfile:
+    cfile2.write(line)
+print("Content in the source file:")
+cfile=open("test.txt","r")  
+print(cfile.read())
+print("\nThe content has been copied...")
+print("Content in the destination file:")
+cfile2=open("test2.txt","r")
+print(cfile2.read())
