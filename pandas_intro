@@ -1,0 +1,35 @@
+import pandas as pd
+import numpy as np
+
+data={
+    'Name' :['Tom','Nick','Chris','Jack'],
+    'Age':[20,21,22,18],
+    'City':['New York','LA','Chicago','Houston']
+}
+df=pd.DataFrame(data)
+print(df)
+
+data1=['Alice',23,'New York'],['Charlie',17,'LA'],['David',24,'Chicago']
+df1=pd.DataFrame(data1,columns=['Name','Age','City'])
+print(df1)
+
+df2=pd.read_csv('dataocp.csv')
+print(df2.head())
+
+print(df2.tail())
+df2.shape
+print(df2.columns)
+print(df2.describe())
+
+print(df2[['Name','Age']])
+print(df2.iloc[0])
+
+print(df2.iloc[10:22])
+print(df2[df2['Age']>25])
+
+df2['New_Column']=df2['Age']+10
+df2=df2.drop('New_Column',axis=1)
+print(df2)
+
+df2=df2.fillna(0)
+print(df2)
