@@ -1,0 +1,30 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+
+x=np.random.normal(3,1,100)
+y=np.random.normal(15,50,100)
+plt.scatter(x,y)
+plt.show()
+
+trainX=x[:80]
+trainY=y[:80]
+testX=x[80:]
+testY=y[80:]
+
+#plt.scatter(trainX,trainY)
+plt.scatter(testX,testY)
+plt.show()
+
+mymodel=np.poly1d(np.polyfit(trainX,trainY,4))
+myline=np.linspace(0,6,100)
+plt.scatter(trainX,trainY)
+plt.plot(myline,mymodel(myline))
+plt.show()
+
+from sklearn.metrics import r2_score
+r2=r2_score(trainY,mymodel(trainX))
+print(r2)
+
+r2=r2_score(testY,mymodel(testX))
+print(r2)
